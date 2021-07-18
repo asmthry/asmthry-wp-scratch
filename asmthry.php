@@ -18,12 +18,22 @@ defined( 'ABSPATH' ) || die( 'What are you doing here? No direct access allowed.
 /** Define Constructors For Asmthry plugin */
 define( 'ASMTHRY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'ASMTHRY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) . '/' );
+define( 'ASMTHRY_INCLUDE_PATH', ASMTHRY_PLUGIN_PATH . 'includes/' );
 
 /** Including Files For ASMTHRY Plugin Support */
 
 /**Plugin Activate */
 require_once ASMTHRY_PLUGIN_PATH . 'class-asmthry-activate.php';
 register_activation_hook( __FILE__, array( 'Asmthry_Activate', 'activate' ) );
+
+/** Load base class */
+require_once ASMTHRY_PLUGIN_PATH . 'class-asmthry-base.php';
+
+/** Load files include class */
+require_once ASMTHRY_PLUGIN_PATH . 'class-asmthry-load-resource.php';
+
+/** Load global/user functions file */
+require_once ASMTHRY_PLUGIN_PATH . 'global-functions.php';
 
 /**Plugin Deactivate */
 require_once ASMTHRY_PLUGIN_PATH . 'class-asmthry-deactivate.php';
