@@ -42,15 +42,27 @@ if ( ! class_exists( 'Asmthry_Enqueue' ) ) {
 		}
 		/** Call enqueue_style to register your style. */
 		public function enqueue_style() {
-			foreach ( $this->enqueue_file as $key => $id ) {
-				wp_enqueue_style( $id );
+			foreach ( $this->enqueue_file as $key => $value ) {
+				if ( is_page( $value['page'] ) || 'all' === $value['page'] ) {
+					wp_enqueue_style( $value['id'] );
+				}
 			}
 		}
 		/** Return resources ids */
 		public function get_ids() {
 			$array = array();
 			foreach ( $this->enqueue_file as $key => $value ) {
-				array_push( $array, $key );
+				$page = 'all';
+				if ( isset( $value['page'] ) ) {
+					$page = $value['page'];
+				}
+				array_push(
+					$array,
+					array(
+						'id'   => $key,
+						'page' => $page,
+					)
+				);
 			}
 			return $array;
 		}
