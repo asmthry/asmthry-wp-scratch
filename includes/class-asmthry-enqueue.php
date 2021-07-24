@@ -27,11 +27,17 @@ if ( ! class_exists( 'Asmthry_Enqueue' ) ) {
 		 */
 		public function register_style() {
 			foreach ( $this->enqueue_file as $key => $resource ) {
-				$path  = $this->empty_sanitize( $resource['path'], get_stylesheet_uri() );
+				if ( isset( $resource['path'] ) ) {
+					$path = ASMTHRY_THEME_URL . $resource['path'];
+				} elseif ( isset( $resource['url'] ) ) {
+					$path = $resource['url'];
+				} else {
+					$path = get_stylesheet_uri();
+				}
 				$deps  = $this->empty_sanitize( $resource, array(), 'dependance' );
 				$var   = $this->empty_sanitize( $resource, ASMTHRY_PLUGIN_VERSION, 'version' );
 				$media = $this->empty_sanitize( $resource, 'all', 'media' );
-				wp_register_style( $key, ASMTHRY_THEME_URL . $path, $deps, $var, $media );
+				wp_register_style( $key, $path, $deps, $var, $media );
 			}
 		}
 		/** Call enqueue_style to register your style. */
