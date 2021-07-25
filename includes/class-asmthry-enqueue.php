@@ -34,10 +34,11 @@ if ( ! class_exists( 'Asmthry_Enqueue' ) ) {
 				} else {
 					$path = get_stylesheet_uri();
 				}
+				$id    = $this->create_slug( $key );
 				$deps  = $this->empty_sanitize( $resource, array(), 'dependance' );
 				$var   = $this->empty_sanitize( $resource, ASMTHRY_PLUGIN_VERSION, 'version' );
 				$media = $this->empty_sanitize( $resource, 'all', 'media' );
-				wp_register_style( $key, $path, $deps, $var, $media );
+				wp_register_style( $id, $path, $deps, $var, $media );
 			}
 		}
 		/** Call enqueue_style to register your style. */
@@ -58,10 +59,11 @@ if ( ! class_exists( 'Asmthry_Enqueue' ) ) {
 				} else {
 					$path = ASMTHRY_THEME_URL . 'assets/js/script.js';
 				}
+				$id        = $this->create_slug( $key );
 				$deps      = $this->empty_sanitize( $resource, array(), 'dependance' );
 				$var       = $this->empty_sanitize( $resource, ASMTHRY_PLUGIN_VERSION, 'version' );
 				$in_footer = $this->empty_sanitize( $resource, false, 'footer' );
-				wp_register_script( $key, $path, $deps, $var, $in_footer );
+				wp_register_script( $id, $path, $deps, $var, $in_footer );
 			}
 		}
 		/** Call enqueue_scripts to register your scripts. */
@@ -77,13 +79,14 @@ if ( ! class_exists( 'Asmthry_Enqueue' ) ) {
 			$array = array();
 			foreach ( $this->enqueue_file as $key => $value ) {
 				$page = 'all';
+				$id   = $this->create_slug( $key );
 				if ( isset( $value['page'] ) ) {
 					$page = $value['page'];
 				}
 				array_push(
 					$array,
 					array(
-						'id'   => $key,
+						'id'   => $id,
 						'page' => $page,
 					)
 				);
