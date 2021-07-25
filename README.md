@@ -25,3 +25,22 @@ $styles = asmthry_register_style(
 );
 asmthry_enqueue_style( $styles );
 ```
+### Enqueue Scripts Using asmthry_register_script() and asmthry_enqueue_script()
+```php
+$script = asmthry_register_script(
+	array(
+		'first-script'  => array(
+			'path'       => 'assets/js/script.js',
+			'version'    => '1.0.5',
+			'dependance' => array(),
+			'footer'     => true,
+			'page'       => 'home-page',
+		),
+		'second-script' => array(
+			'url'  => 'http://localhost/assets/js/page2.js',
+			'page' => '2',
+		),
+	)
+);
+asmthry_enqueue_script( $script );
+```
