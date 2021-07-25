@@ -48,6 +48,30 @@ if ( ! class_exists( 'Asmthry_Enqueue' ) ) {
 				}
 			}
 		}
+		/** Register scripts.*/
+		public function register_script() {
+			foreach ( $this->enqueue_file as $key => $resource ) {
+				if ( isset( $resource['path'] ) ) {
+					$path = ASMTHRY_THEME_URL . $resource['path'];
+				} elseif ( isset( $resource['url'] ) ) {
+					$path = $resource['url'];
+				} else {
+					$path = ASMTHRY_THEME_URL . 'assets/js/script.js';
+				}
+				$deps      = $this->empty_sanitize( $resource, array(), 'dependance' );
+				$var       = $this->empty_sanitize( $resource, ASMTHRY_PLUGIN_VERSION, 'version' );
+				$in_footer = $this->empty_sanitize( $resource, false, 'footer' );
+				wp_register_script( $key, $path, $deps, $var, $in_footer );
+			}
+		}
+		/** Call enqueue_scripts to register your scripts. */
+		public function enqueue_script() {
+			foreach ( $this->enqueue_file as $key => $value ) {
+				if ( is_page( $value['page'] ) || 'all' === $value['page'] ) {
+					wp_enqueue_script( $value['id'] );
+				}
+			}
+		}
 		/** Return resources ids */
 		public function get_ids() {
 			$array = array();
