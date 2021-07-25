@@ -6,6 +6,10 @@ asmthry_theme_support();
 ======== OR ============
 asmthry_theme_support( array( 'title-tag' ) );
 ```
+### Create custom post type using asmthry_create_cpt()
+```php
+asmthry_create_cpt( 'Test' );
+```
 ### Enqueue Styles Using asmthry_register_style() and asmthry_enqueue_style()
 ```php
 $styles = asmthry_register_style(

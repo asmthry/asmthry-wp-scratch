@@ -70,6 +70,7 @@ function asmthry_register_script( array $resources = null ) {
 		return;
 	}
 }
+
 /** Enqueue Scripts
  *
  * @param array $ids - Give resources id as an array.
@@ -81,6 +82,21 @@ function asmthry_enqueue_script( array $ids = null ) {
 		if ( ! empty( $ids ) ) {
 			$enqueue = new Asmthry_Enqueue( $ids );
 			add_action( 'wp_enqueue_scripts', array( $enqueue, 'enqueue_script' ) );
+		}
+	}
+}
+
+/** Enqueue Styles
+ *
+ * @param string $post_name - Give resources id as an array.
+ */
+function asmthry_create_cpt( string $post_name ) {
+	Asmthry_Load_Resource::include_file( 'cpt' );
+	/** Check if Asmthry Enqueue class loaded properly */
+	if ( class_exists( 'Asmthry_Cpt' ) ) {
+		if ( ! empty( $post_name ) ) {
+			$cpt = new Asmthry_Cpt( $post_name );
+			add_action( 'init', array( $cpt, 'register_cpt' ) );
 		}
 		return;
 	}
