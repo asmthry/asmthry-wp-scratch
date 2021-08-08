@@ -58,13 +58,10 @@ function asmthry_enqueue_style( array $ids = null ) {
  * @param string $post_name - Give resources id as an array.
  */
 function asmthry_create_cpt( string $post_name ) {
-	Asmthry_Load_Resource::include_file( 'cpt' );
+	Asmthry_Load_Resource::include_file( 'Asmthry_Cpt' );
 	/** Check if Asmthry Enqueue class loaded properly */
-	if ( class_exists( 'Asmthry_Cpt' ) ) {
-		if ( ! empty( $post_name ) ) {
-			$cpt = new Asmthry_Cpt( $post_name );
-			add_action( 'init', array( $cpt, 'register_cpt' ) );
-		}
-		return;
+	if ( ! empty( $post_name ) ) {
+		$cpt = new Asmthry_Cpt( $post_name );
+		add_action( 'init', array( $cpt, 'register_cpt' ) );
 	}
 }
