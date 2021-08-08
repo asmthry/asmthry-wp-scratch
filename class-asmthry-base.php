@@ -53,13 +53,17 @@ if ( ! class_exists( 'Asmthry_Base' ) ) {
 		 * Change array value based on key of another array
 		 *
 		 * @param array $array - Give default value array.
-		 * @param array $replace - Give replacing array.
+		 * @param any   $replace - Give replacing array.
 		 */
-		public function swap_array_value( array $array, array $replace ) {
-			foreach ( $replace as $key => $value ) {
-				$array[ $key ] = $value;
+		public function swap_array_value( array $array, $replace ) {
+			if ( is_array( $replace ) ) {
+				foreach ( $replace as $key => $value ) {
+					$array[ $key ] = $value;
+				}
+				return $array;
+			} else {
+				return $array;
 			}
-			return $array;
 		}
 	}
 }

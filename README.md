@@ -8,7 +8,23 @@ asmthry_theme_support( array( 'title-tag' ) );
 ```
 ### Create custom post type using asmthry_create_cpt()
 ```php
-asmthry_create_cpt( 'Test' );
+asmthry_create_cpt( 'Blog' );
+```
+#### Filter post arguments and labels
+If your post name is Blog, then the post slug will be blog.
+If your post name is My Blog, then the post slug will be my_blog.
+```php
+function filter_post_arguments_values( $post_name, $post_slug ) {
+	$array['supports'] = array( 'title', 'editor', 'thumbnail' );
+	return $array;
+}
+add_filter( 'asmthry_{Post Slug}_post_arguments', 'filter_post_arguments_values', 10, 2 );
+
+function filter_post_labels_values( $post_name, $post_slug ) {
+	$array['name'] = __( 'My Blog', 'ASMTHRY' );
+	return $array;
+}
+add_filter( 'asmthry_{Post Slug}_post_labels', 'filter_post_labels_values', 10, 2 );
 ```
 ### Enqueue Styles Using asmthry_register_style() and asmthry_enqueue_style()
 ```php
