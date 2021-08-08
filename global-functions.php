@@ -27,15 +27,12 @@ function asmthry_theme_support( array $supports = null ) {
  * @param array $resources - Give resources as an array.
  */
 function asmthry_register_style( array $resources = null ) {
-	Asmthry_Load_Resource::include_file( 'enqueue' );
+	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
-	if ( class_exists( 'Asmthry_Enqueue' ) ) {
-		if ( ! empty( $resources ) ) {
-			$enqueue = new Asmthry_Enqueue( $resources );
-			add_action( 'wp_enqueue_scripts', array( $enqueue, 'register_style' ) );
-			return $enqueue->get_ids();
-		}
-		return;
+	if ( ! empty( $resources ) ) {
+		$enqueue = new Asmthry_Enqueue( $resources );
+		add_action( 'wp_enqueue_scripts', array( $enqueue, 'register_style' ) );
+		return $enqueue->get_ids();
 	}
 }
 /** Enqueue Styles
@@ -43,14 +40,11 @@ function asmthry_register_style( array $resources = null ) {
  * @param array $ids - Give resources id as an array.
  */
 function asmthry_enqueue_style( array $ids = null ) {
-	Asmthry_Load_Resource::include_file( 'enqueue' );
+	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
-	if ( class_exists( 'Asmthry_Enqueue' ) ) {
-		if ( ! empty( $ids ) ) {
-			$enqueue = new Asmthry_Enqueue( $ids );
-			add_action( 'wp_enqueue_scripts', array( $enqueue, 'enqueue_style' ) );
-		}
-		return;
+	if ( ! empty( $ids ) ) {
+		$enqueue = new Asmthry_Enqueue( $ids );
+		add_action( 'wp_enqueue_scripts', array( $enqueue, 'enqueue_style' ) );
 	}
 }
 
@@ -59,15 +53,12 @@ function asmthry_enqueue_style( array $ids = null ) {
  * @param array $resources - Give resources as an array.
  */
 function asmthry_register_script( array $resources = null ) {
-	Asmthry_Load_Resource::include_file( 'enqueue' );
+	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
-	if ( class_exists( 'Asmthry_Enqueue' ) ) {
-		if ( ! empty( $resources ) ) {
-			$enqueue = new Asmthry_Enqueue( $resources );
-			add_action( 'wp_enqueue_scripts', array( $enqueue, 'register_script' ) );
-			return $enqueue->get_ids();
-		}
-		return;
+	if ( ! empty( $resources ) ) {
+		$enqueue = new Asmthry_Enqueue( $resources );
+		add_action( 'wp_enqueue_scripts', array( $enqueue, 'register_script' ) );
+		return $enqueue->get_ids();
 	}
 }
 /** Enqueue Scripts
@@ -75,13 +66,10 @@ function asmthry_register_script( array $resources = null ) {
  * @param array $ids - Give resources id as an array.
  */
 function asmthry_enqueue_script( array $ids = null ) {
-	Asmthry_Load_Resource::include_file( 'enqueue' );
+	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
-	if ( class_exists( 'Asmthry_Enqueue' ) ) {
-		if ( ! empty( $ids ) ) {
-			$enqueue = new Asmthry_Enqueue( $ids );
-			add_action( 'wp_enqueue_scripts', array( $enqueue, 'enqueue_script' ) );
-		}
-		return;
+	if ( ! empty( $ids ) ) {
+		$enqueue = new Asmthry_Enqueue( $ids );
+		add_action( 'wp_enqueue_scripts', array( $enqueue, 'enqueue_script' ) );
 	}
 }
