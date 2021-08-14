@@ -26,6 +26,23 @@ function filter_post_labels_values( $post_name, $post_slug ) {
 }
 add_filter( 'asmthry_{Post Slug}_post_labels', 'filter_post_labels_values', 10, 2 );
 ```
+### Create Taxonomies using asmthry_create_taxonomy()
+```php
+asmthry_create_taxonomy( 'Category', 'Blog' );
+```
+#### You can filter taxonomy arguments and labels.
+```php
+function change_taxonomy_labels_values( $taxonomy_name, $taxonomy_slug ) {
+  $array['name'] = 'Category';
+  return $array;
+}
+add_filter( 'asmthry_my_taxonomy_taxonomy_labels', 'change_taxonomy_labels_values', 10, 2 );
+function change_taxonomy_arguments_values( $taxonomy_name, $taxonomy_slug ) {
+  $array['show_ui'] = false;
+  return $array;
+}
+add_filter( 'asmthry_my_taxonomy_taxonomy_arguments', 'change_taxonomy_arguments_values', 10, 2 );
+```
 ### Enqueue Styles Using asmthry_register_style() and asmthry_enqueue_style()
 ```php
 $styles = asmthry_register_style(

@@ -34,7 +34,7 @@ function asmthry_register_style( array $resources = null ) {
 }
 /** Enqueue Styles
  *
- * @param array $ids - Give resources id as an array.
+ * @param array $ids - Give resources id and page as an array.
  */
 function asmthry_enqueue_style( array $ids = null ) {
 	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
@@ -60,7 +60,7 @@ function asmthry_register_script( array $resources = null ) {
 }
 /** Enqueue Scripts
  *
- * @param array $ids - Give resources id as an array.
+ * @param array $ids - Give resources id and page as an array.
  */
 function asmthry_enqueue_script( array $ids = null ) {
 	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
@@ -71,15 +71,29 @@ function asmthry_enqueue_script( array $ids = null ) {
 	}
 }
 
-/** Enqueue Styles
+/** Create Custom post type
  *
- * @param string $post_name - Give resources id as an array.
+ * @param string $post_name - Give post name.
  */
 function asmthry_create_cpt( string $post_name ) {
 	Asmthry_Load_Resource::include_file( 'Asmthry_Cpt' );
-	/** Check if Asmthry Enqueue class loaded properly */
+	/** Check if Asmthry Cpt class loaded properly */
 	if ( ! empty( $post_name ) ) {
 		$cpt = new Asmthry_Cpt( $post_name );
 		add_action( 'init', array( $cpt, 'register_cpt' ) );
+	}
+}
+
+/** Create taxonomies.
+ *
+ * @param string $taxonomy_name - taxonomy name.
+ * @param string $post_name - Give post name.
+ */
+function asmthry_create_taxonomy( string $taxonomy_name, string $post_name ) {
+	Asmthry_Load_Resource::include_file( 'Asmthry_Taxonomy' );
+	/** Check if Asmthry Taxonomy class loaded properly */
+	if ( ! empty( $taxonomy_name ) ) {
+		$cpt = new Asmthry_Taxonomy( $taxonomy_name, $post_name );
+		add_action( 'init', array( $cpt, 'asmthry_register_taxonomy' ) );
 	}
 }
