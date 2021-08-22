@@ -81,3 +81,23 @@ $script = asmthry_register_script(
 );
 asmthry_enqueue_script( $script );
 ```
+### Create customizer
+```php
+asmthry_create_customizer(
+	array(
+		'Contact Details'   => array(
+			'Email' => array(
+				'type' => 'text',
+			),
+			'Address' => array(
+				'type' => 'textarea',
+			),
+		),
+		'Settings' => array(),
+	)
+);
+```
+#### Use asmthry_get_customizer() to retrieve customizer value
+```php
+echo asmthry_get_customizer( 'Address' );
+```
