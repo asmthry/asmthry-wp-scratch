@@ -24,7 +24,7 @@ function asmthry_theme_support( array $supports = null ) {
  * @param array $resources - Give resources as an array.
  */
 function asmthry_register_style( array $resources = null ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
 	if ( ! empty( $resources ) ) {
 		$enqueue = new Asmthry_Enqueue( $resources );
@@ -37,7 +37,7 @@ function asmthry_register_style( array $resources = null ) {
  * @param array $ids - Give resources id and page as an array.
  */
 function asmthry_enqueue_style( array $ids = null ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
 	if ( ! empty( $ids ) ) {
 		$enqueue = new Asmthry_Enqueue( $ids );
@@ -50,7 +50,7 @@ function asmthry_enqueue_style( array $ids = null ) {
  * @param array $resources - Give resources as an array.
  */
 function asmthry_register_script( array $resources = null ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
 	if ( ! empty( $resources ) ) {
 		$enqueue = new Asmthry_Enqueue( $resources );
@@ -63,7 +63,7 @@ function asmthry_register_script( array $resources = null ) {
  * @param array $ids - Give resources id and page as an array.
  */
 function asmthry_enqueue_script( array $ids = null ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Enqueue' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Enqueue' );
 	/** Check if Asmthry Enqueue class loaded properly */
 	if ( ! empty( $ids ) ) {
 		$enqueue = new Asmthry_Enqueue( $ids );
