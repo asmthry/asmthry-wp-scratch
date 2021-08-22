@@ -76,7 +76,7 @@ function asmthry_enqueue_script( array $ids = null ) {
  * @param string $post_name - Give resources id as an array.
  */
 function asmthry_create_cpt( string $post_name ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Cpt' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Cpt' );
 	/** Check if Asmthry Enqueue class loaded properly */
 	if ( ! empty( $post_name ) ) {
 		$cpt = new Asmthry_Cpt( $post_name );
