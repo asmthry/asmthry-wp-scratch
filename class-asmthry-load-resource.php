@@ -15,7 +15,7 @@ if ( ! class_exists( 'Asmthry_Load_Resource' ) ) {
 		 * @param string $class_name - Give your class name.
 		 * If you file name is class-asmthry-base.php, pass Asmthry_Base only.
 		 */
-		public static function include_file( $class_name = null ) {
+		public static function load_class( $class_name = null ) {
 			if ( null !== $class_name ) {
 				if ( ! class_exists( $class_name ) ) {
 					$temp     = strtolower( $class_name );
