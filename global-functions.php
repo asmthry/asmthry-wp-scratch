@@ -103,7 +103,7 @@ function asmthry_create_taxonomy( string $taxonomy_name, string $post_name ) {
  * @param array $customizer - Give customizer controls.
  */
 function asmthry_create_customizer( array $customizer ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Customizer' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Customizer' );
 	/** Check if Asmthry Taxonomy class loaded properly */
 	if ( ! empty( $customizer ) ) {
 		$asmthry_customizer = new Asmthry_Customizer( $customizer );
@@ -116,7 +116,7 @@ function asmthry_create_customizer( array $customizer ) {
  * @param string $customizer_name - Give customizer controls.
  */
 function asmthry_get_customizer( string $customizer_name ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Customizer' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Customizer' );
 	/** Check if Asmthry Taxonomy class loaded properly */
 	if ( ! empty( $customizer_name ) ) {
 		$customizer_value = Asmthry_Customizer::get_theme_mode( $customizer_name );
