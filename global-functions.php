@@ -11,7 +11,7 @@
  * @param array $supports - Give support name as an array.
  */
 function asmthry_theme_support( array $supports = null ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Theme_Support' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Theme_Support' );
 	if ( ! empty( $supports ) ) {
 		new Asmthry_Theme_Support( $supports );
 	} else {
