@@ -90,7 +90,7 @@ function asmthry_create_cpt( string $post_name ) {
  * @param string $post_name - Give post name.
  */
 function asmthry_create_taxonomy( string $taxonomy_name, string $post_name ) {
-	Asmthry_Load_Resource::include_file( 'Asmthry_Taxonomy' );
+	Asmthry_Load_Resource::load_class( 'Asmthry_Taxonomy' );
 	/** Check if Asmthry Taxonomy class loaded properly */
 	if ( ! empty( $taxonomy_name ) ) {
 		$cpt = new Asmthry_Taxonomy( $taxonomy_name, $post_name );
