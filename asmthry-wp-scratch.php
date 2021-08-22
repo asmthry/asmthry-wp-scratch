@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:          ASMTHRY
+ * Plugin Name:          ASMTHry WP Scratch
  * Plugin URI:           https://github.com/ASMTHRY/ASMTHRY.git
  * Description:          This is the basic plugin for WordPress code simplifying
  * Version:              1.0.0
