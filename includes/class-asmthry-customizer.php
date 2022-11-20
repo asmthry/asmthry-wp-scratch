@@ -3,7 +3,7 @@
  * Author: ASMTHRY
  * Asmthry Enqueue class helps to add assets files to WordPress
  *
- * @package ASMTHRY
+ * @package ASMTHRY WP Scratch
  */
 
 /** Check if Asmthry_Customizer exists */
@@ -98,17 +98,15 @@ if ( ! class_exists( 'Asmthry_Customizer' ) ) {
 		 */
 		public function create_control( $input = array( 'label' => 'Name' ) ) {
 			$this->customize['control'] = $this->customize['settings'] . '_input';
-            //@codingStandardsIgnoreStart
 			$this->wp_customize->add_control(
 				$this->customize['control'],
 				array(
-					'type'	   => $this->empty_sanitize( $input, 'text', 'type'),
+					'type'     => $this->empty_sanitize( $input, 'text', 'type' ),
 					'label'    => __( $this->customize['field'], 'ASMThry' ),
 					'section'  => $this->customize['section'],
 					'settings' => $this->customize['settings'],
 				)
 			);
-            //@codingStandardsIgnoreEnd
 		}
 
 		/** Create customizer controls

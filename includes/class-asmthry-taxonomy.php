@@ -3,7 +3,7 @@
  * Author: ASMTHRY
  * Asmthry theme support class helps to add taxonomies to WordPress
  *
- * @package ASMTHRY
+ * @package ASMTHRY WP Scratch
  */
 
 /** Check if Asmthry_Taxonomy exists */
