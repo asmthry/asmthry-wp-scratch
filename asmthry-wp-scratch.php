@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:          ASMTHRY
+ * Plugin Name:          ASMTHry WP Scratch
  * Plugin URI:           https://github.com/ASMTHRY/ASMTHRY.git
  * Description:          This is the basic plugin for WordPress code simplifying
  * Version:              1.0.0
@@ -16,8 +16,12 @@
 defined( 'ABSPATH' ) || die( 'What are you doing here? No direct access allowed.' );
 
 /** Define Constructors For Asmthry plugin */
+define( 'ASMTHRY_PLUGIN_VERSION', '1.0.0' );
+define( 'ASMTHRY_PLUGIN_NAME', 'ASMTHRY' );
 define( 'ASMTHRY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'ASMTHRY_THEME_URL', get_template_directory_uri() . '/' );
 define( 'ASMTHRY_PLUGIN_PATH', plugin_dir_path( __FILE__ ) . '/' );
+define( 'ASMTHRY_THEME_PATH', get_template_directory() );
 define( 'ASMTHRY_INCLUDE_PATH', ASMTHRY_PLUGIN_PATH . 'includes/' );
 
 /** Including Files For ASMTHRY Plugin Support */

@@ -13,11 +13,15 @@ if ( ! class_exists( 'Asmthry_Load_Resource' ) ) {
 		/** Simplify file require once
 		 *
 		 * @param string $class_name - Give your class name.
-		 * If you file name is class-asmthry-base.php, pass base only.
+		 * If you file name is class-asmthry-base.php, pass Asmthry_Base only.
 		 */
-		public static function include_file( $class_name = null ) {
+		public static function load_class( $class_name = null ) {
 			if ( null !== $class_name ) {
-				require_once ASMTHRY_INCLUDE_PATH . 'class-asmthry-' . $class_name . '.php';
+				if ( ! class_exists( $class_name ) ) {
+					$temp     = strtolower( $class_name );
+					$filename = str_replace( '_', '-', $temp );
+					require_once ASMTHRY_INCLUDE_PATH . 'class-' . $filename . '.php';
+				}
 			}
 		}
 	}
