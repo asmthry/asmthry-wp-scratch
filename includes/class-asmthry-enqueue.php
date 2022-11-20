@@ -3,7 +3,7 @@
  * Author: ASMTHRY
  * Asmthry Enqueue class helps to add assets files to WordPress
  *
- * @package ASMTHRY
+ * @package ASMTHRY WP Scratch
  */
 
 /** Check if Asmthry_Enqueue exists */

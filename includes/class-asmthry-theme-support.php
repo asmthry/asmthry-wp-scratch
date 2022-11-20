@@ -3,7 +3,7 @@
  * Author: ASMTHRY
  * Asmthry theme support class helps to add theme support to WordPress
  *
- * @package ASMTHRY
+ * @package ASMTHRY WP Scratch
  */
 
 /** Check if Asmthry_Theme_Support exists */

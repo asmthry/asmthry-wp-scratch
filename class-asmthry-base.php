@@ -3,7 +3,7 @@
  * Author: ASMTHRY
  * This file trigger when ASMTHRY plugin activate
  *
- * @package ASMTHRY
+ * @package ASMTHRY WP Scratch
  */
 
 /** Check if Asmthry_Base exists */
