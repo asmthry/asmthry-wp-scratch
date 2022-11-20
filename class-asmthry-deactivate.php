@@ -11,7 +11,7 @@ if ( ! class_exists( 'Asmthry_Deactivate' ) ) {
 	/** Class for doing when plugin deactivating */
 	class Asmthry_Deactivate {
 		/** Execute code when deactivation Instance created */
-		public function deactivate() {
+		public static function deactivate() {
 			/** Write plugin deactivation code here */
 			flush_rewrite_rules();
 		}
