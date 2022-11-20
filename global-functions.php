@@ -3,7 +3,7 @@
  * Author: ASMTHRY
  * Add functions for global use.
  *
- * @package ASMTHRY
+ * @package ASMTHRY WP Scratch
  */
 
 /** Add Theme Support

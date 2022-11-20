@@ -3,7 +3,7 @@
  * Author: ASMTHRY
  * Include all files for ASMTHRY plugin.
  *
- * @package ASMTHRY
+ * @package ASMTHRY WP Scratch
  */
 
 /** Check if Asmthry_Load_Resource exists */
